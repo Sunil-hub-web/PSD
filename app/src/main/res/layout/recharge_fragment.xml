@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#B2D5EC"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/fifteen">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/signup"
+            android:fontFamily="@font/sans_bold"
+            android:text="Amount"
+            android:textColor="@color/appcolor3"
+            android:textSize="@dimen/textsize"
+            android:layout_marginLeft="@dimen/ten"
+            android:layout_marginTop="@dimen/ten"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/sixty"
+            android:fontFamily="@font/sans_regular"
+            android:inputType="text"
+            android:padding="@dimen/ten"
+            android:hint="Cardholder Name"
+            android:textSize="@dimen/edittextsize"
+            android:background="@drawable/layoutback"
+            android:layout_margin="@dimen/five"
+            android:textColor="@color/black"
+            android:drawablePadding="@dimen/ten"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/signup"
+            android:fontFamily="@font/sans_bold"
+            android:text="Choose Amount"
+            android:textColor="@color/appcolor3"
+            android:textSize="@dimen/textsize"
+            android:layout_marginLeft="@dimen/ten"
+            android:layout_marginTop="@dimen/ten"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="3">
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/fifty"
+                android:fontFamily="@font/sans_regular"
+                android:padding="@dimen/ten"
+                android:text="Rs 577"
+                android:gravity="center"
+                android:textSize="@dimen/edittextsize"
+                android:background="@drawable/otptextview_otp"
+                android:layout_margin="@dimen/five"
+                android:textColor="@color/white"
+                android:drawablePadding="@dimen/ten"/>
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/fifty"
+                android:fontFamily="@font/sans_regular"
+                android:padding="@dimen/ten"
+                android:text="Rs 3000"
+                android:gravity="center"
+                android:textSize="@dimen/edittextsize"
+                android:background="@drawable/layoutback"
+                android:layout_margin="@dimen/five"
+                android:textColor="@color/black"
+                android:drawablePadding="@dimen/ten"/>
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/fifty"
+                android:fontFamily="@font/sans_regular"
+                android:padding="@dimen/ten"
+                android:text="Rs 5000"
+                android:gravity="center"
+                android:textSize="@dimen/edittextsize"
+                android:background="@drawable/layoutback"
+                android:layout_margin="@dimen/five"
+                android:textColor="@color/black"
+                android:drawablePadding="@dimen/ten"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="3"
+            android:layout_marginTop="@dimen/ten">
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/fifty"
+                android:fontFamily="@font/sans_regular"
+                android:padding="@dimen/ten"
+                android:text="Rs 10000"
+                android:gravity="center"
+                android:textSize="@dimen/edittextsize"
+                android:background="@drawable/layoutback"
+                android:layout_margin="@dimen/five"
+                android:textColor="@color/black"
+                android:drawablePadding="@dimen/ten"/>
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/fifty"
+                android:fontFamily="@font/sans_regular"
+                android:padding="@dimen/ten"
+                android:text="Rs 20000"
+                android:gravity="center"
+                android:textSize="@dimen/edittextsize"
+                android:background="@drawable/layoutback"
+                android:layout_margin="@dimen/five"
+                android:textColor="@color/black"
+                android:drawablePadding="@dimen/ten"/>
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/fifty"
+                android:fontFamily="@font/sans_regular"
+                android:padding="@dimen/ten"
+                android:text="Rs 50000"
+                android:gravity="center"
+                android:textSize="@dimen/edittextsize"
+                android:background="@drawable/layoutback"
+                android:layout_margin="@dimen/five"
+                android:textColor="@color/black"
+                android:drawablePadding="@dimen/ten"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="3"
+            android:layout_marginTop="@dimen/twenty_five">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/fifty"
+                android:fontFamily="@font/sans_regular"
+                android:padding="@dimen/ten"
+                android:text="KirinPay"
+                android:gravity="center"
+                android:textSize="@dimen/edittextsize"
+                android:background="@drawable/otptextview_otp"
+                android:layout_margin="@dimen/five"
+                android:textColor="@color/white"
+                android:drawablePadding="@dimen/ten"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/fifty"
+                android:fontFamily="@font/sans_regular"
+                android:padding="@dimen/ten"
+                android:text="KrPay"
+                android:gravity="center"
+                android:textSize="@dimen/edittextsize"
+                android:background="@drawable/layoutback"
+                android:layout_margin="@dimen/five"
+                android:textColor="@color/black"
+                android:drawablePadding="@dimen/ten"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/fifty"
+                android:fontFamily="@font/sans_regular"
+                android:padding="@dimen/ten"
+                android:text="FastPay"
+                android:gravity="center"
+                android:textSize="@dimen/edittextsize"
+                android:background="@drawable/layoutback"
+                android:layout_margin="@dimen/five"
+                android:textColor="@color/black"
+                android:drawablePadding="@dimen/ten"/>
+
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/ten"
+            android:fontFamily="@font/sans_bold"
+            android:padding="@dimen/twelve"
+            android:text="Recharge"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/appcolor3"
+            app:cornerRadius="@dimen/ten" />
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#B2D5EC"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:elevation="5dp"
+        android:orientation="vertical">
+
+
+
+        <EditText
+            android:id="@+id/edit_UserFullName"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fifty"
+            android:fontFamily="@font/sans_regular"
+            android:inputType="text"
+            android:padding="@dimen/ten"
+            android:hint="Please Enter Gift Code"
+            android:textSize="@dimen/edittextsize"
+            android:background="@drawable/layoutback"
+            android:layout_margin="@dimen/five"
+            android:textColor="@color/black"
+            android:drawablePadding="@dimen/ten"/>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/ten"
+            android:fontFamily="@font/sans_bold"
+            android:padding="@dimen/twelve"
+            android:text="Confirm"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/appcolor3"
+            app:cornerRadius="@dimen/ten" />
+
+    </LinearLayout>
+
+</RelativeLayout>

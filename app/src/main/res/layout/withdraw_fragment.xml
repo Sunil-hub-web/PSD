@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#B2D5EC"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="@dimen/ten">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sans_bold"
+                android:text="Balance"
+                android:textColor="@color/appcolor3"
+                android:textSize="@dimen/twenty"
+                android:layout_margin="@dimen/five"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sans_bold"
+                android:text="Rs 1000"
+                android:textColor="@color/appcolor3"
+                android:textSize="@dimen/twenty"
+                android:layout_margin="@dimen/five"
+                android:background="@drawable/button_back1"
+                android:padding="@dimen/fifteen"/>
+
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/edit_Password"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fifty"
+            android:fontFamily="@font/sans_regular"
+            android:inputType="textPassword"
+            android:padding="@dimen/ten"
+            android:hint="Withdraw Amount"
+            android:textSize="@dimen/edittextsize"
+            android:background="@drawable/layoutback"
+            android:layout_margin="@dimen/five"
+            android:textColor="@color/black"
+            android:drawablePadding="@dimen/ten"/>
+
+        <EditText
+            android:id="@+id/edit_PasswordAgain"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fifty"
+            android:fontFamily="@font/sans_regular"
+            android:inputType="textPassword"
+            android:padding="@dimen/ten"
+            android:hint="Withdraw Password"
+            android:textSize="@dimen/edittextsize"
+            android:background="@drawable/layoutback"
+            android:layout_margin="@dimen/five"
+            android:textColor="@color/black"
+            android:drawablePadding="@dimen/ten"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/signup"
+            android:fontFamily="@font/sans_bold"
+            android:text="1. The minimum withdrawal amount is 110/-"
+            android:textColor="@color/appcolor3"
+            android:textSize="@dimen/textsize"
+            android:layout_margin="@dimen/five"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/signup"
+            android:fontFamily="@font/sans_bold"
+            android:text="2. Withdrawal Charege 6% "
+            android:textColor="@color/appcolor3"
+            android:textSize="@dimen/textsize"
+            android:layout_margin="@dimen/five"/>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/ten"
+            android:fontFamily="@font/sans_bold"
+            android:padding="@dimen/twelve"
+            android:text="With Draw"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/appcolor3"
+            app:cornerRadius="@dimen/ten" />
+
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

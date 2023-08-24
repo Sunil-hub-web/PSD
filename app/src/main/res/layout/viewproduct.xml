@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/ten"
+        android:layout_marginTop="@dimen/ten"
+        android:layout_marginEnd="@dimen/ten"
+        android:layout_marginBottom="@dimen/ten"
+        android:background="@drawable/textfieldback"
+        android:elevation="15dp">
+
+        <ImageView
+            android:id="@+id/productImage"
+            android:layout_width="@dimen/hundred_ten"
+            android:layout_height="@dimen/hundred_twenty"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/five"
+            android:layout_marginTop="@dimen/five"
+            android:layout_marginEnd="@dimen/five"
+            android:layout_marginBottom="@dimen/five"
+            android:scaleType="fitXY"
+            android:src="@drawable/img"></ImageView>
+
+
+        <LinearLayout
+            android:id="@+id/linorder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/five"
+            android:layout_marginTop="@dimen/five"
+            android:layout_toRightOf="@id/productImage"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/five"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/text_Price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/three"
+                    android:text="Price : "
+                    android:textColor="@color/background2"
+                    android:textSize="@dimen/twelve_size"
+                    android:textStyle="bold"></TextView>
+
+
+                <TextView
+                    android:id="@+id/text_DailyIncome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/three"
+                    android:text="Daily Income"
+                    android:textColor="@color/background2"
+                    android:textSize="@dimen/twelve_size"
+                    android:textStyle="bold"></TextView>
+
+
+                <TextView
+                    android:id="@+id/text_ValidityPeriod"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/three"
+                    android:text="Validity Period"
+                    android:textColor="@color/appcolor1"
+                    android:textSize="@dimen/twelve_size"
+                    android:textStyle="bold"></TextView>
+
+
+                <TextView
+                    android:id="@+id/text_TotalRevenue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/three"
+                    android:text="Total Revenue"
+                    android:textColor="@color/appcolor1"
+                    android:textSize="@dimen/twelve_size"
+                    android:textStyle="bold"></TextView>
+
+
+                <TextView
+                    android:id="@+id/text_PurchaseLimit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/three"
+                    android:text="Purchase Limit"
+                    android:textColor="@color/appcolor1"
+                    android:textSize="@dimen/twelve_size"
+                    android:textStyle="bold"></TextView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/five"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/text_Price1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/three"
+                    android:text="Rs 610"
+                    android:textColor="@color/background2"
+                    android:textSize="@dimen/twelve_size"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/text_DailyIncome1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/three"
+                    android:text="Rs 28"
+                    android:textColor="@color/background2"
+                    android:textSize="@dimen/twelve_size"
+                    android:textStyle="bold"></TextView>
+
+
+                <TextView
+                    android:id="@+id/text_ValidityPeriod1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/three"
+                    android:text="45 / Days"
+                    android:textColor="@color/background2"
+                    android:textSize="@dimen/twelve_size"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/text_TotalRevenue1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/three"
+                    android:text="1260 Rs"
+                    android:textColor="@color/background2"
+                    android:textSize="@dimen/twelve_size"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/text_PurchaseLimit1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/three"
+                    android:text="1 / Person"
+                    android:textColor="@color/background2"
+                    android:textSize="@dimen/twelve_size"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/btn_cancelOrder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linorder"
+            android:layout_toRightOf="@id/productImage"
+            android:background="@drawable/backgroundcolor"
+            android:backgroundTint="@color/appcolor3"
+            android:gravity="center"
+            android:text="View"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textsize"
+            android:textStyle="bold"
+            android:padding="@dimen/five"
+            android:layout_margin="@dimen/five"></TextView>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
