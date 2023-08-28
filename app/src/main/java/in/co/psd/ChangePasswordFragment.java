@@ -9,11 +9,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import in.co.psd.databinding.ChangepasswordFragmentBinding;
 import in.co.psd.databinding.ProductFragmentBinding;
 
-public class ProductFragment extends Fragment {
+public class ChangePasswordFragment extends Fragment {
 
-    ProductFragmentBinding binding;
+    ChangepasswordFragmentBinding binding;
 
     @Nullable
     @Override
@@ -21,11 +22,12 @@ public class ProductFragment extends Fragment {
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        binding = ProductFragmentBinding.inflate(getLayoutInflater(),container,false);
+        binding = ChangepasswordFragmentBinding.inflate(getLayoutInflater(),container,false);
 
         DashBoard.image_Logo.setVisibility(View.GONE);
         DashBoard.welcome_text.setVisibility(View.VISIBLE);
-        DashBoard.welcome_text.setText("Product");
+        DashBoard.welcome_text.setText("Change Password");
+
 
         return binding.getRoot();
     }

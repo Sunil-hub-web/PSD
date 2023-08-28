@@ -8,16 +8,17 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/sixty"
+        android:layout_height="@dimen/fifty"
         android:background="@drawable/back_category"
         android:elevation="@dimen/five">
 
         <ImageView
             android:id="@+id/image_Logo"
-            android:layout_width="@dimen/eighty"
+            android:layout_width="@dimen/sixty"
             android:layout_height="@dimen/sixty"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/funds"
+            android:src="@drawable/applogo"
+            android:layout_margin="@dimen/five"
             >
 
         </ImageView>
@@ -35,7 +36,7 @@
         </ImageView>
 
         <TextView
-            android:id="@+id/welcome"
+            android:id="@+id/welcome_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"

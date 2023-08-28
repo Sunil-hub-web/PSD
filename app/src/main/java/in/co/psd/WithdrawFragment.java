@@ -10,10 +10,11 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import in.co.psd.databinding.ProductFragmentBinding;
+import in.co.psd.databinding.WithdrawFragmentBinding;
 
-public class ProductFragment extends Fragment {
+public class WithdrawFragment extends Fragment {
 
-    ProductFragmentBinding binding;
+    WithdrawFragmentBinding binding;
 
     @Nullable
     @Override
@@ -21,11 +22,11 @@ public class ProductFragment extends Fragment {
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        binding = ProductFragmentBinding.inflate(getLayoutInflater(),container,false);
+        binding = WithdrawFragmentBinding.inflate(getLayoutInflater(),container,false);
 
         DashBoard.image_Logo.setVisibility(View.GONE);
         DashBoard.welcome_text.setVisibility(View.VISIBLE);
-        DashBoard.welcome_text.setText("Product");
+        DashBoard.welcome_text.setText("Withdraw");
 
         return binding.getRoot();
     }
