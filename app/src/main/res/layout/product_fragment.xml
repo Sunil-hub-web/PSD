@@ -4,25 +4,25 @@
     android:layout_height="match_parent"
     android:background="@color/background6">
 
- <!--   <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-    </androidx.recyclerview.widget.RecyclerView>-->
-
-    <LinearLayout
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:id="@+id/productRecyclerView">
 
-        <include layout="@layout/viewproduct"></include>
+    </androidx.recyclerview.widget.RecyclerView>
 
-        <include layout="@layout/viewproduct"></include>
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical">-->
 
-        <include layout="@layout/viewproduct"></include>
+<!--        <include layout="@layout/viewproduct"></include>-->
 
-    </LinearLayout>
+<!--        <include layout="@layout/viewproduct"></include>-->
+
+<!--        <include layout="@layout/viewproduct"></include>-->
+
+<!--    </LinearLayout>-->
 
 
 

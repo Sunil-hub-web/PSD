@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import in.co.psd.databinding.BankaccountFragmentBinding;
 import in.co.psd.databinding.ChangepasswordFragmentBinding;
 import in.co.psd.databinding.ProductFragmentBinding;
 

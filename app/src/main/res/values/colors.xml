@@ -16,5 +16,7 @@
     <color name="background3">#5499C7</color>
     <color name="background5">#7FB3D5</color>
     <color name="background6">#B2D5EC</color>
+    <color name="mdtp_accent_color_dark">#00796b</color>
+    <color name="mdtp_calendar_header">@color/mdtp_accent_color_dark</color>
 
 </resources>
