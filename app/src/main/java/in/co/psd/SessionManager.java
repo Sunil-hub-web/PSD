@@ -16,6 +16,8 @@ public class SessionManager {
     private static final String USERID = "userid";
     private static final String AUTHKEY = "authkey";
     private static final String IS_LOGIN = "islogin";
+    private static final String IS_MOBILENO = "ismobileno";
+    private static final String IS_PASSWORD = "ispassword";
 
 
     public SessionManager(Context context){
@@ -23,6 +25,30 @@ public class SessionManager {
         this.context =  context;
         sharedprefernce = context.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
         editor = sharedprefernce.edit();
+    }
+
+    public void setISMOBILENO(String mobileNO){
+
+        editor.putString(IS_MOBILENO,mobileNO);
+        editor.commit();
+
+    }
+
+    public String getISMOBILENO(){
+
+        return  sharedprefernce.getString(IS_MOBILENO,"defvalue");
+    }
+
+    public void setISPASSWORD(String password){
+
+        editor.putString(IS_PASSWORD,password);
+        editor.commit();
+
+    }
+
+    public String getISPASSWORD(){
+
+        return  sharedprefernce.getString(IS_PASSWORD,"defvalue");
     }
 
     public void setUSERID(String userid){

@@ -7,4 +7,6 @@ public class ApiList {
     public static final String user_login = baseUrl+"user-login";
     public static final String user_register = baseUrl+"user-register";
     public static final String all_investment_plans = baseUrl+"all-investment-plans";
+    public static final String all_product_details = baseUrl+"all-product-details";
+    public static final String change_password = baseUrl+"change-password";
 }

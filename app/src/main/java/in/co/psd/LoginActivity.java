@@ -99,10 +99,14 @@ public class LoginActivity extends AppCompatActivity {
                 try {
                     String status = response.getString("status");
                     if(status.equals("202")){
+
                         String message = response.getString("message");
                         String user_id = response.getString("user_id");
                         String auth = response.getString("auth");
                         Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
+
+                        sessionManager.setISMOBILENO(mobile);
+                        sessionManager.setISPASSWORD(pass);
                         sessionManager.setUSERID(user_id);
                         sessionManager.setAUTHKEY(auth);
                         sessionManager.setLogin();
