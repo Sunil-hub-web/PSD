@@ -18,6 +18,7 @@ public class SessionManager {
     private static final String IS_LOGIN = "islogin";
     private static final String IS_MOBILENO = "ismobileno";
     private static final String IS_PASSWORD = "ispassword";
+    private static final String IS_REFERALCODE = "referalcode";
 
 
     public SessionManager(Context context){
@@ -73,6 +74,18 @@ public class SessionManager {
     public String getAUTHKEY(){
 
         return  sharedprefernce.getString(AUTHKEY,"defvalue");
+    }
+
+    public void setRefrealCode(String refcode){
+
+        editor.putString(IS_REFERALCODE,refcode);
+        editor.commit();
+
+    }
+
+    public String getRefrealCode(){
+
+        return  sharedprefernce.getString(IS_REFERALCODE,"defvalue");
     }
 
     public Boolean isLogin(){

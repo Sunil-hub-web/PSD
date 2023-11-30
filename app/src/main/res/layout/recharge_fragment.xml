@@ -5,210 +5,373 @@
     android:background="#B2D5EC"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="@dimen/fifteen">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/signup"
-            android:fontFamily="@font/sans_bold"
-            android:text="Amount"
-            android:textColor="@color/appcolor3"
-            android:textSize="@dimen/textsize"
-            android:layout_marginLeft="@dimen/ten"
-            android:layout_marginTop="@dimen/ten"/>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/sixty"
-            android:fontFamily="@font/sans_regular"
-            android:inputType="text"
-            android:padding="@dimen/ten"
-            android:hint="Cardholder Name"
-            android:textSize="@dimen/edittextsize"
-            android:background="@drawable/layoutback"
-            android:layout_margin="@dimen/five"
-            android:textColor="@color/black"
-            android:drawablePadding="@dimen/ten"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/signup"
-            android:fontFamily="@font/sans_bold"
-            android:text="Choose Amount"
-            android:textColor="@color/appcolor3"
-            android:textSize="@dimen/textsize"
-            android:layout_marginLeft="@dimen/ten"
-            android:layout_marginTop="@dimen/ten"/>
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:weightSum="3">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/fifteen"
+            android:layout_marginLeft="@dimen/five"
+            android:layout_marginRight="@dimen/five">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/signup"
+                android:fontFamily="@font/sans_bold"
+                android:text="Select Your Payment Option Then Payment Your Payment is Success Fully Then Fill The Frome With Transaction Id Upload Payment Document And Submit"
+                android:textColor="@color/appcolor3"
+                android:textSize="@dimen/edittextsize"
+                android:layout_marginLeft="@dimen/ten" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/signup"
+                android:fontFamily="@font/sans_bold"
+                android:text="Amount"
+                android:textColor="@color/appcolor3"
+                android:textSize="@dimen/textsize"
+                android:layout_marginLeft="@dimen/ten"
+                android:layout_marginTop="@dimen/ten"/>
 
             <EditText
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="@dimen/fifty"
+                android:id="@+id/editAmount"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sixty"
                 android:fontFamily="@font/sans_regular"
+                android:inputType="text"
                 android:padding="@dimen/ten"
-                android:text="Rs 577"
-                android:gravity="center"
+                android:hint="Enter Your Amount"
                 android:textSize="@dimen/edittextsize"
-                android:background="@drawable/otptextview_otp"
+                android:background="@drawable/layoutback"
                 android:layout_margin="@dimen/five"
+                android:textColor="@color/black"
+                android:drawablePadding="@dimen/ten"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/signup"
+                android:fontFamily="@font/sans_bold"
+                android:text="Date"
+                android:textColor="@color/appcolor3"
+                android:textSize="@dimen/textsize"
+                android:layout_marginLeft="@dimen/ten"
+                android:layout_marginTop="@dimen/ten"/>
+
+            <EditText
+                android:id="@+id/editDate"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sixty"
+                android:fontFamily="@font/sans_regular"
+                android:inputType="text"
+                android:padding="@dimen/ten"
+                android:hint="Select Your Date"
+                android:textSize="@dimen/edittextsize"
+                android:background="@drawable/layoutback"
+                android:layout_margin="@dimen/five"
+                android:textColor="@color/black"
+                android:drawablePadding="@dimen/ten"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:drawableRight="@drawable/calendar_month"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/signup"
+                android:fontFamily="@font/sans_bold"
+                android:text="Transaction Id"
+                android:textColor="@color/appcolor3"
+                android:textSize="@dimen/textsize"
+                android:layout_marginLeft="@dimen/ten"
+                android:layout_marginTop="@dimen/ten"/>
+
+            <EditText
+                android:id="@+id/editTransactionId"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sixty"
+                android:fontFamily="@font/sans_regular"
+                android:inputType="text"
+                android:padding="@dimen/ten"
+                android:hint="Enter Your Transaction Id"
+                android:textSize="@dimen/edittextsize"
+                android:background="@drawable/layoutback"
+                android:layout_margin="@dimen/five"
+                android:textColor="@color/black"
+                android:drawablePadding="@dimen/ten"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/signup"
+                android:fontFamily="@font/sans_bold"
+                android:text="Upload Transaction Details"
+                android:textColor="@color/appcolor3"
+                android:textSize="@dimen/textsize"
+                android:layout_marginLeft="@dimen/ten"
+                android:layout_marginTop="@dimen/ten"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2">
+
+                <EditText
+                    android:id="@+id/edit_ShowImagePtah"
+                    android:layout_width="0dp"
+                    android:layout_weight="1.3"
+                    android:layout_height="@dimen/fifty"
+                    android:fontFamily="@font/sans_regular"
+                    android:inputType="text"
+                    android:padding="@dimen/ten"
+                    android:enabled="false"
+                    android:textSize="@dimen/edittextsize"
+                    android:background="@drawable/layoutback"
+                    android:layout_margin="@dimen/five"
+                    android:textColor="@color/black"
+                    android:drawablePadding="@dimen/ten"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_upload"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.7"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/ten"
+                    android:fontFamily="@font/sans_bold"
+                    android:padding="@dimen/twelve"
+                    android:text="Upload"
+                    android:textColor="@color/white"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    app:backgroundTint="@color/appcolor3"
+                    app:cornerRadius="@dimen/ten" />
+
+
+            </LinearLayout>
+
+            <!--        <LinearLayout-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:weightSum="3">-->
+
+            <!--            <EditText-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_weight="1"-->
+            <!--                android:layout_height="@dimen/fifty"-->
+            <!--                android:fontFamily="@font/sans_regular"-->
+            <!--                android:padding="@dimen/ten"-->
+            <!--                android:text="Rs 500"-->
+            <!--                android:gravity="center"-->
+            <!--                android:textSize="@dimen/edittextsize"-->
+            <!--                android:background="@drawable/otptextview_otp"-->
+            <!--                android:layout_margin="@dimen/five"-->
+            <!--                android:textColor="@color/white"-->
+            <!--                android:drawablePadding="@dimen/ten"/>-->
+
+            <!--            <EditText-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_weight="1"-->
+            <!--                android:layout_height="@dimen/fifty"-->
+            <!--                android:fontFamily="@font/sans_regular"-->
+            <!--                android:padding="@dimen/ten"-->
+            <!--                android:text="Rs 1000"-->
+            <!--                android:gravity="center"-->
+            <!--                android:textSize="@dimen/edittextsize"-->
+            <!--                android:background="@drawable/layoutback"-->
+            <!--                android:layout_margin="@dimen/five"-->
+            <!--                android:textColor="@color/black"-->
+            <!--                android:drawablePadding="@dimen/ten"/>-->
+
+            <!--            <EditText-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_weight="1"-->
+            <!--                android:layout_height="@dimen/fifty"-->
+            <!--                android:fontFamily="@font/sans_regular"-->
+            <!--                android:padding="@dimen/ten"-->
+            <!--                android:text="Rs 5000"-->
+            <!--                android:gravity="center"-->
+            <!--                android:textSize="@dimen/edittextsize"-->
+            <!--                android:background="@drawable/layoutback"-->
+            <!--                android:layout_margin="@dimen/five"-->
+            <!--                android:textColor="@color/black"-->
+            <!--                android:drawablePadding="@dimen/ten"/>-->
+
+            <!--        </LinearLayout>-->
+
+            <!--        <LinearLayout-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:weightSum="3"-->
+            <!--            android:layout_marginTop="@dimen/ten">-->
+
+            <!--            <EditText-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_weight="1"-->
+            <!--                android:layout_height="@dimen/fifty"-->
+            <!--                android:fontFamily="@font/sans_regular"-->
+            <!--                android:padding="@dimen/ten"-->
+            <!--                android:text="Rs 10000"-->
+            <!--                android:gravity="center"-->
+            <!--                android:textSize="@dimen/edittextsize"-->
+            <!--                android:background="@drawable/layoutback"-->
+            <!--                android:layout_margin="@dimen/five"-->
+            <!--                android:textColor="@color/black"-->
+            <!--                android:drawablePadding="@dimen/ten"/>-->
+
+            <!--            <EditText-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_weight="1"-->
+            <!--                android:layout_height="@dimen/fifty"-->
+            <!--                android:fontFamily="@font/sans_regular"-->
+            <!--                android:padding="@dimen/ten"-->
+            <!--                android:text="Rs 20000"-->
+            <!--                android:gravity="center"-->
+            <!--                android:textSize="@dimen/edittextsize"-->
+            <!--                android:background="@drawable/layoutback"-->
+            <!--                android:layout_margin="@dimen/five"-->
+            <!--                android:textColor="@color/black"-->
+            <!--                android:drawablePadding="@dimen/ten"/>-->
+
+            <!--            <EditText-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_weight="1"-->
+            <!--                android:layout_height="@dimen/fifty"-->
+            <!--                android:fontFamily="@font/sans_regular"-->
+            <!--                android:padding="@dimen/ten"-->
+            <!--                android:text="Rs 50000"-->
+            <!--                android:gravity="center"-->
+            <!--                android:textSize="@dimen/edittextsize"-->
+            <!--                android:background="@drawable/layoutback"-->
+            <!--                android:layout_margin="@dimen/five"-->
+            <!--                android:textColor="@color/black"-->
+            <!--                android:drawablePadding="@dimen/ten"/>-->
+
+            <!--        </LinearLayout>-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/signup"
+                android:fontFamily="@font/sans_bold"
+                android:text="Choose Payment Option"
+                android:textColor="@color/appcolor3"
+                android:textSize="@dimen/textsize"
+                android:layout_marginLeft="@dimen/ten" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="4">
+
+                <TextView
+                    android:id="@+id/textGPay"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/forty"
+                    android:fontFamily="@font/sans_regular"
+                    android:padding="@dimen/ten"
+                    android:text="GPay"
+                    android:gravity="center"
+                    android:textSize="@dimen/textsize"
+                    android:background="@drawable/otptextview_otp"
+                    android:layout_margin="@dimen/five"
+                    android:textColor="@color/white"/>
+
+                <TextView
+                    android:id="@+id/textPhonePay"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/forty"
+                    android:fontFamily="@font/sans_regular"
+                    android:padding="@dimen/ten"
+                    android:text="PhonePay"
+                    android:gravity="center"
+                    android:textSize="@dimen/textsize"
+                    android:background="@drawable/layoutback"
+                    android:layout_margin="@dimen/five"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/textPaytm"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/forty"
+                    android:fontFamily="@font/sans_regular"
+                    android:padding="@dimen/ten"
+                    android:text="Paytm"
+                    android:gravity="center"
+                    android:textSize="@dimen/textsize"
+                    android:background="@drawable/layoutback"
+                    android:layout_margin="@dimen/five"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/textUPID"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/forty"
+                    android:fontFamily="@font/sans_regular"
+                    android:padding="@dimen/ten"
+                    android:text="UPID"
+                    android:gravity="center"
+                    android:textSize="@dimen/textsize"
+                    android:background="@drawable/layoutback"
+                    android:layout_margin="@dimen/five"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/qrcodeImage"
+                android:layout_width="@dimen/two_hundred"
+                android:layout_height="@dimen/two_hundred_fifty"
+                android:src="@drawable/phonepayqrcode"
+                android:scaleType="fitXY"
+                android:layout_gravity="center"
+                android:visibility="gone">
+            </ImageView>
+
+            <EditText
+                android:id="@+id/editUPID"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/sixty"
+                android:fontFamily="@font/sans_bold"
+                android:inputType="text"
+                android:padding="@dimen/ten"
+                android:hint="spd2023@ybl"
+                android:textSize="@dimen/edittextsize"
+                android:layout_gravity="center"
+                android:enabled="false"
+                android:background="@drawable/layoutback"
+                android:layout_margin="@dimen/five"
+                android:textColor="@color/black"
+                android:drawablePadding="@dimen/ten"
+                android:visibility="gone"/>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_Recharge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/fifteen"
+                android:fontFamily="@font/sans_bold"
+                android:padding="@dimen/twelve"
+                android:text="Recharge"
                 android:textColor="@color/white"
-                android:drawablePadding="@dimen/ten"/>
-
-            <EditText
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="@dimen/fifty"
-                android:fontFamily="@font/sans_regular"
-                android:padding="@dimen/ten"
-                android:text="Rs 3000"
-                android:gravity="center"
-                android:textSize="@dimen/edittextsize"
-                android:background="@drawable/layoutback"
-                android:layout_margin="@dimen/five"
-                android:textColor="@color/black"
-                android:drawablePadding="@dimen/ten"/>
-
-            <EditText
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="@dimen/fifty"
-                android:fontFamily="@font/sans_regular"
-                android:padding="@dimen/ten"
-                android:text="Rs 5000"
-                android:gravity="center"
-                android:textSize="@dimen/edittextsize"
-                android:background="@drawable/layoutback"
-                android:layout_margin="@dimen/five"
-                android:textColor="@color/black"
-                android:drawablePadding="@dimen/ten"/>
+                android:textSize="15dp"
+                android:textStyle="bold"
+                app:backgroundTint="@color/appcolor3"
+                app:cornerRadius="@dimen/ten" />
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:weightSum="3"
-            android:layout_marginTop="@dimen/ten">
+    </ScrollView>
 
-            <EditText
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="@dimen/fifty"
-                android:fontFamily="@font/sans_regular"
-                android:padding="@dimen/ten"
-                android:text="Rs 10000"
-                android:gravity="center"
-                android:textSize="@dimen/edittextsize"
-                android:background="@drawable/layoutback"
-                android:layout_margin="@dimen/five"
-                android:textColor="@color/black"
-                android:drawablePadding="@dimen/ten"/>
 
-            <EditText
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="@dimen/fifty"
-                android:fontFamily="@font/sans_regular"
-                android:padding="@dimen/ten"
-                android:text="Rs 20000"
-                android:gravity="center"
-                android:textSize="@dimen/edittextsize"
-                android:background="@drawable/layoutback"
-                android:layout_margin="@dimen/five"
-                android:textColor="@color/black"
-                android:drawablePadding="@dimen/ten"/>
-
-            <EditText
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="@dimen/fifty"
-                android:fontFamily="@font/sans_regular"
-                android:padding="@dimen/ten"
-                android:text="Rs 50000"
-                android:gravity="center"
-                android:textSize="@dimen/edittextsize"
-                android:background="@drawable/layoutback"
-                android:layout_margin="@dimen/five"
-                android:textColor="@color/black"
-                android:drawablePadding="@dimen/ten"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:weightSum="3"
-            android:layout_marginTop="@dimen/twenty_five">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="@dimen/fifty"
-                android:fontFamily="@font/sans_regular"
-                android:padding="@dimen/ten"
-                android:text="KirinPay"
-                android:gravity="center"
-                android:textSize="@dimen/edittextsize"
-                android:background="@drawable/otptextview_otp"
-                android:layout_margin="@dimen/five"
-                android:textColor="@color/white"
-                android:drawablePadding="@dimen/ten"/>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="@dimen/fifty"
-                android:fontFamily="@font/sans_regular"
-                android:padding="@dimen/ten"
-                android:text="KrPay"
-                android:gravity="center"
-                android:textSize="@dimen/edittextsize"
-                android:background="@drawable/layoutback"
-                android:layout_margin="@dimen/five"
-                android:textColor="@color/black"
-                android:drawablePadding="@dimen/ten"/>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="@dimen/fifty"
-                android:fontFamily="@font/sans_regular"
-                android:padding="@dimen/ten"
-                android:text="FastPay"
-                android:gravity="center"
-                android:textSize="@dimen/edittextsize"
-                android:background="@drawable/layoutback"
-                android:layout_margin="@dimen/five"
-                android:textColor="@color/black"
-                android:drawablePadding="@dimen/ten"/>
-
-        </LinearLayout>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_signup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/ten"
-            android:fontFamily="@font/sans_bold"
-            android:padding="@dimen/twelve"
-            android:text="Recharge"
-            android:textColor="@color/white"
-            android:textSize="15dp"
-            android:textStyle="bold"
-            app:backgroundTint="@color/appcolor3"
-            app:cornerRadius="@dimen/ten" />
-
-    </LinearLayout>
 
 </RelativeLayout>

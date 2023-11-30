@@ -17,9 +17,11 @@
             android:layout_width="@dimen/sixty"
             android:layout_height="@dimen/sixty"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/applogo"
-            android:layout_margin="@dimen/five"
-            >
+            android:layout_marginStart="@dimen/five"
+            android:layout_marginTop="@dimen/five"
+            android:layout_marginEnd="@dimen/five"
+            android:layout_marginBottom="@dimen/five"
+            android:src="@drawable/applogo">
 
         </ImageView>
 
@@ -43,7 +45,7 @@
             android:layout_marginTop="@dimen/thirty"
             android:text="Welcome Back"
             android:textColor="@color/white"
-            android:textSize="@dimen/twenty_size"
+            android:textSize="@dimen/edittextsize"
             android:fontFamily="@font/roboto_bold"
             android:visibility="gone">
 

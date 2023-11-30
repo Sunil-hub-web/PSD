@@ -16,11 +16,11 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <include layout="@layout/viewproduct"></include>
+        <include layout="@layout/viewmyproduct"></include>
 
-        <include layout="@layout/viewproduct"></include>
+        <include layout="@layout/viewmyproduct"></include>
 
-        <include layout="@layout/viewproduct"></include>
+        <include layout="@layout/viewmyproduct"></include>
 
     </LinearLayout>
 

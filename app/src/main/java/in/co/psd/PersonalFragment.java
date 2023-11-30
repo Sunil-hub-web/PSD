@@ -1,9 +1,14 @@
 package in.co.psd;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -182,6 +187,14 @@ public class PersonalFragment extends Fragment {
             }
         });
 
+        binding.btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                logout_Condition();
+            }
+        });
+
 
         return binding.getRoot();
     }
@@ -215,9 +228,12 @@ public class PersonalFragment extends Fragment {
                         String user_mobile = jsonObject_user_details.getString("user_mobile");
                         String user_password = jsonObject_user_details.getString("user_password");
                         String user_auth = jsonObject_user_details.getString("user_auth");
+                        String user_refCode = jsonObject_user_details.getString("user_refCode");
+                        String user_stat = jsonObject_user_details.getString("user_stat");
 
                         sessionManager.setUSERID(user_id);
                         sessionManager.setAUTHKEY(user_auth);
+                        sessionManager.setRefrealCode(user_refCode);
                         sessionManager.setLogin();
 
                         binding.userName.setText(user_name);
@@ -248,5 +264,42 @@ public class PersonalFragment extends Fragment {
         RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
         requestQueue.getCache().clear();
         requestQueue.add(jsonObjectRequest);
+    }
+
+    public void logout_Condition() {
+
+        //Show Your Another AlertDialog
+        final Dialog dialog = new Dialog(getActivity());
+        dialog.setContentView(R.layout.condition_logout);
+        dialog.setCancelable(false);
+        Button btn_No = dialog.findViewById(R.id.no);
+        TextView textView = dialog.findViewById(R.id.editText);
+        Button btn_Yes = dialog.findViewById(R.id.yes);
+
+        btn_Yes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                sessionManager.logoutUser();
+
+                dialog.dismiss();
+                getActivity().finish();
+                //System.exit(1);
+
+            }
+        });
+        btn_No.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
+        Window window = dialog.getWindow();
+        window.setLayout(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        window.setBackgroundDrawableResource(R.drawable.homecard_back1);
+
     }
 }

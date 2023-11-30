@@ -171,50 +171,26 @@
 
         </LinearLayout>
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/btn_view"
             android:layout_width="match_parent"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:weightSum="1"
-            android:orientation="horizontal"
+            android:layout_marginStart="@dimen/five"
+            android:background="@drawable/backgroundcolor"
+            android:backgroundTint="@color/appcolor3"
+            android:gravity="center"
+            android:padding="@dimen/five"
+            android:text="View"
+            android:layout_margin="@dimen/three"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textsize"
+            android:textStyle="bold"
             android:layout_below="@+id/linorder"
             android:layout_marginTop="@dimen/five"
             android:layout_marginEnd="@dimen/five"
             android:layout_marginBottom="@dimen/five"
-            android:layout_toRightOf="@id/productImage">
-
-<!--            <TextView-->
-<!--                android:id="@+id/btn_view"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_weight="1"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginStart="@dimen/five"-->
-<!--                android:background="@drawable/backgroundcolor"-->
-<!--                android:backgroundTint="@color/appcolor3"-->
-<!--                android:gravity="center"-->
-<!--                android:padding="@dimen/five"-->
-<!--                android:text="View"-->
-<!--                android:layout_margin="@dimen/three"-->
-<!--                android:textColor="@color/white"-->
-<!--                android:textSize="@dimen/textsize"-->
-<!--                android:textStyle="bold"></TextView>-->
-
-            <TextView
-                android:id="@+id/btn_BYNow"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/three"
-                android:background="@drawable/backgroundcolor"
-                android:backgroundTint="@color/appcolor3"
-                android:gravity="center"
-                android:padding="@dimen/five"
-                android:text="By Now"
-                android:textColor="@color/white"
-                android:textSize="@dimen/textsize"
-                android:textStyle="bold"></TextView>
-
-
-        </LinearLayout>
+            android:layout_toRightOf="@id/productImage"></TextView>
 
 
 

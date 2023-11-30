@@ -70,13 +70,21 @@ public class RegisterActivity extends AppCompatActivity {
                 }else if (binding.editPasswordAgain.getText().toString().trim().equals("")){
 
                     Toast.makeText(RegisterActivity.this, "Enter Your Confirm Password", Toast.LENGTH_SHORT).show();
-                }else {
+
+                } else if (!binding.editWidthdrawalPassword.getText().toString().trim().equals(
+                        binding.editConfirmWidthdrawalPassword.getText().toString().trim())){
+
+                    Toast.makeText(RegisterActivity.this, "Widthdrawal Password Don't Match", Toast.LENGTH_SHORT).show();
+
+                } else {
+
                     if (binding.editPassword.getText().toString().trim().equals(binding.editPasswordAgain.getText().toString().trim())){
 
                         userRegister(binding.editUserFullName.getText().toString().trim(),
                                 binding.editMobileNumber.getText().toString().trim(),
                                 binding.editPassword.getText().toString().trim(),
-                                binding.editInvitationCode.getText().toString().trim());
+                                binding.editInvitationCode.getText().toString().trim(),
+                                binding.editWidthdrawalPassword.getText().toString().trim());
 
                     }else{
 
@@ -87,7 +95,7 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
-    public  void userRegister(String name, String mobile, String pass, String refCode){
+    public  void userRegister(String name, String mobile, String pass, String refCode,String withdrawPass){
 
         progressbar.showDialog();
 
@@ -97,6 +105,7 @@ public class RegisterActivity extends AppCompatActivity {
             jsonObject1.put("name",name);
             jsonObject1.put("mobile",mobile);
             jsonObject1.put("pass",pass);
+            jsonObject1.put("withdrawPass",withdrawPass);
             jsonObject1.put("refCode",refCode);
 
         } catch (JSONException e) {
