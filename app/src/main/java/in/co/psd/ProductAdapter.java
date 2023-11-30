@@ -1,5 +1,6 @@
 package in.co.psd;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
@@ -25,12 +26,19 @@ import com.squareup.picasso.Picasso;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
+
+import javax.crypto.Cipher;
+import javax.crypto.KeyGenerator;
+import javax.crypto.NoSuchPaddingException;
+import javax.crypto.SecretKey;
 
 import in.co.psd.databinding.ViewproductBinding;
 
@@ -42,6 +50,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     ViewDialog progressbar;
     SessionManager sessionManager;
     Activity activity;
+    static Cipher cipher;
 
     public ProductAdapter(FragmentActivity activity, ArrayList<ProductModelClass> productModelClasses) {
 
@@ -86,7 +95,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
                 String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
 
-                productByNow(sessionManager.getUSERID(),product.getProduct_id(),product.product_amt,date);
+                getProfileDetails(sessionManager.getUSERID(), sessionManager.getAUTHKEY(),product.getProduct_id(),
+                        product.product_amt,date);
+
+                //productByNow(sessionManager.getUSERID(),product.getProduct_id(),product.product_amt,date);
 
             }
         });
@@ -171,5 +183,87 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         requestQueue.getCache().clear();
         requestQueue.add(jsonObjectRequest);
 
+    }
+
+    public void getProfileDetails(String userId,String auth,String productID, String amt, String date){
+
+        progressbar.showDialog();
+
+
+        Map<String,String> params = new HashMap<>();
+        params.put("userId",userId);
+        params.put("auth",auth);
+
+        JSONObject jsonObject1 = new JSONObject(params);
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, ApiList.user_details, jsonObject1, new Response.Listener<JSONObject>() {
+            @SuppressLint("GetInstance")
+            @Override
+            public void onResponse(JSONObject response) {
+
+                progressbar.hideDialog();
+
+                try {
+                    String status = response.getString("status");
+                    if(status.equals("202")){
+
+                        String message = response.getString("message");
+                        String user_details = response.getString("user_details");
+                        JSONObject jsonObject_user_details = new JSONObject(user_details);
+                        String user_id = jsonObject_user_details.getString("user_id");
+                        String user_name = jsonObject_user_details.getString("user_name");
+                        String user_mobile = jsonObject_user_details.getString("user_mobile");
+                        String user_password = jsonObject_user_details.getString("user_password");
+                        String user_withdrawPass = jsonObject_user_details.getString("user_withdrawPass");
+                        String user_auth = jsonObject_user_details.getString("user_auth");
+                        String user_refCode = jsonObject_user_details.getString("user_refCode");
+                        String user_stat = jsonObject_user_details.getString("user_stat");
+                        String user_wallet = jsonObject_user_details.getString("user_wallet");
+
+
+                        sessionManager.setUSERID(user_id);
+                        sessionManager.setAUTHKEY(user_auth);
+                        sessionManager.setRefrealCode(user_refCode);
+                        sessionManager.setLogin();
+
+
+
+                        double duser_wallet = Double.valueOf(user_wallet);
+                        double damt = Double.valueOf(amt);
+
+                        if (duser_wallet > damt ){
+
+                            productByNow(userId, productID, amt, date);
+
+                        }else{
+
+                            Toast.makeText(context, "Please Recharges And Buy", Toast.LENGTH_SHORT).show();
+                        }
+
+
+                    }else{
+
+                        String message = response.getString("message");
+                        Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+                    }
+
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                progressbar.hideDialog();
+                Toast.makeText(context, ""+error, Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        jsonObjectRequest.setRetryPolicy(new DefaultRetryPolicy(30000,3,DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        requestQueue.getCache().clear();
+        requestQueue.add(jsonObjectRequest);
     }
 }

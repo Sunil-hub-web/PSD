@@ -4,25 +4,14 @@
     android:layout_height="match_parent"
     android:background="@color/background6">
 
-    <!--   <androidx.recyclerview.widget.RecyclerView
+       <androidx.recyclerview.widget.RecyclerView
            android:layout_width="match_parent"
-           android:layout_height="wrap_content">
+           android:layout_height="wrap_content"
+           android:id="@+id/myProductRecycler">
 
 
-       </androidx.recyclerview.widget.RecyclerView>-->
+       </androidx.recyclerview.widget.RecyclerView>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <include layout="@layout/viewmyproduct"></include>
-
-        <include layout="@layout/viewmyproduct"></include>
-
-        <include layout="@layout/viewmyproduct"></include>
-
-    </LinearLayout>
 
 
 

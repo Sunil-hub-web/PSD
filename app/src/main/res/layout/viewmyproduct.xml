@@ -96,7 +96,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_margin="@dimen/three"
-                    android:text="Purchase Limit"
+                    android:text="Product name"
                     android:textColor="@color/appcolor1"
                     android:textSize="@dimen/twelve_size"
                     android:textStyle="bold"></TextView>
