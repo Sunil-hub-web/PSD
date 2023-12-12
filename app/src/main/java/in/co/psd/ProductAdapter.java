@@ -223,7 +223,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
                         sessionManager.setUSERID(user_id);
                         sessionManager.setAUTHKEY(user_auth);
-                        sessionManager.setRefrealCode(user_refCode);
+                        sessionManager.setRefrealCode(user_id);
                         sessionManager.setLogin();
 
 

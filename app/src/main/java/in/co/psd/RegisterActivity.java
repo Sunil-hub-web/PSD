@@ -25,6 +25,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     ActivityRegisterBinding binding;
     ViewDialog progressbar;
+    SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,7 @@ public class RegisterActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         progressbar = new ViewDialog(RegisterActivity.this);
+        sessionManager = new SessionManager(RegisterActivity.this);
 
         binding.textSignin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,10 +63,10 @@ public class RegisterActivity extends AppCompatActivity {
                 }else if (binding.editMobileNumber.getText().toString().trim().length() != 10){
 
                     Toast.makeText(RegisterActivity.this, "Enter Your 10 digit Mobile NO", Toast.LENGTH_SHORT).show();
-                }else if (binding.editEmailId.getText().toString().trim().equals("")){
+                }/*else if (binding.editEmailId.getText().toString().trim().equals("")){
 
                     Toast.makeText(RegisterActivity.this, "Enter Your E_Mail Id ", Toast.LENGTH_SHORT).show();
-                }else if (binding.editPassword.getText().toString().trim().equals("")){
+                }*/else if (binding.editPassword.getText().toString().trim().equals("")){
 
                     Toast.makeText(RegisterActivity.this, "Enter Your Password", Toast.LENGTH_SHORT).show();
                 }else if (binding.editPasswordAgain.getText().toString().trim().equals("")){
@@ -126,8 +128,12 @@ public class RegisterActivity extends AppCompatActivity {
                         String user_id = response.getString("user_id");
                         String auth = response.getString("auth");
 
+                        sessionManager.setWITHDRAWPASSWORD(withdrawPass);
+
                         Toast.makeText(RegisterActivity.this, message, Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
+
+
                     }else{
                         String message = response.getString("message");
                         Toast.makeText(RegisterActivity.this, message, Toast.LENGTH_SHORT).show();

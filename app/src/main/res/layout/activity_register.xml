@@ -83,7 +83,7 @@
                     android:drawableLeft="@drawable/baseline_call_24"
                     android:drawablePadding="@dimen/ten"/>
 
-                <EditText
+               <!-- <EditText
                     android:id="@+id/edit_EmailId"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/fifty"
@@ -96,7 +96,7 @@
                     android:layout_margin="@dimen/five"
                     android:textColor="@color/black"
                     android:drawableLeft="@drawable/baseline_mark_email_read_24"
-                    android:drawablePadding="@dimen/ten"/>
+                    android:drawablePadding="@dimen/ten"/>-->
 
                 <EditText
                     android:id="@+id/edit_Password"

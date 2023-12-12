@@ -1,5 +1,6 @@
 package in.co.psd;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +21,9 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import in.co.psd.databinding.ProductFragmentBinding;
 import in.co.psd.databinding.WithdrawpasswordFragmentBinding;
@@ -48,6 +52,8 @@ public class WidthdrawalPassFragment extends Fragment {
         str_password = sessionManager.getISPASSWORD();
 
         progressbar = new ViewDialog(getActivity());
+
+
 
         binding.btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,6 +117,8 @@ public class WidthdrawalPassFragment extends Fragment {
                         String message = response.getString("message");
                         String user_id = response.getString("user_id");
 
+                        sessionManager.setWITHDRAWPASSWORD(newPass);
+
                         Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
 
                     }else{
@@ -140,4 +148,5 @@ public class WidthdrawalPassFragment extends Fragment {
         requestQueue.add(jsonObjectRequest);
 
     }
+
 }

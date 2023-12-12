@@ -2,6 +2,7 @@ package in.co.psd;
 
 import android.app.Dialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,6 +59,8 @@ public class PersonalFragment extends Fragment {
         sessionManager = new SessionManager(getActivity());
 
         getProfileDetails(sessionManager.getUSERID(), sessionManager.getAUTHKEY());
+
+        //binding.textTotalrecharge.setText("");
 
         binding.relRecharage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -230,14 +233,29 @@ public class PersonalFragment extends Fragment {
                         String user_auth = jsonObject_user_details.getString("user_auth");
                         String user_refCode = jsonObject_user_details.getString("user_refCode");
                         String user_stat = jsonObject_user_details.getString("user_stat");
+                        String user_wallet = jsonObject_user_details.getString("user_wallet");
 
                         sessionManager.setUSERID(user_id);
                         sessionManager.setAUTHKEY(user_auth);
-                        sessionManager.setRefrealCode(user_refCode);
+                        sessionManager.setRefrealCode(user_id);
                         sessionManager.setLogin();
 
                         binding.userName.setText(user_name);
                         binding.userMobileNo.setText(user_mobile);
+
+                        binding.textTotalrecharge.setText(user_wallet);
+
+                        if (sessionManager.getBALANCEAMOUNT().equals("defvalue")){
+
+                            binding.textTotalbalance.setText("0");
+
+                        }else{
+
+                            binding.textTotalbalance.setText(sessionManager.getBALANCEAMOUNT());
+                        }
+
+
+                        Log.d("userreferalcode",user_id+"   "+sessionManager.getRefrealCode());
 
                     }else{
 

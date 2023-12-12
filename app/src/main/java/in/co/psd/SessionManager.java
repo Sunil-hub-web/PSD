@@ -19,6 +19,8 @@ public class SessionManager {
     private static final String IS_MOBILENO = "ismobileno";
     private static final String IS_PASSWORD = "ispassword";
     private static final String IS_REFERALCODE = "referalcode";
+    private static final String IS_WITHDRAWPASSWORD = "iswithdrawpassword";
+    private static final String IS_BALANCEAMOUNT = "isbalanceamount";
 
 
     public SessionManager(Context context){
@@ -26,6 +28,30 @@ public class SessionManager {
         this.context =  context;
         sharedprefernce = context.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
         editor = sharedprefernce.edit();
+    }
+
+    public void setBALANCEAMOUNT(String BALANCEAMOUNT){
+
+        editor.putString(IS_BALANCEAMOUNT,BALANCEAMOUNT);
+        editor.commit();
+
+    }
+
+    public String getBALANCEAMOUNT(){
+
+        return  sharedprefernce.getString(IS_BALANCEAMOUNT,"defvalue");
+    }
+
+    public void setWITHDRAWPASSWORD(String WITHDRAWPASSWORD){
+
+        editor.putString(IS_WITHDRAWPASSWORD,WITHDRAWPASSWORD);
+        editor.commit();
+
+    }
+
+    public String getWITHDRAWPASSWORD(){
+
+        return  sharedprefernce.getString(IS_WITHDRAWPASSWORD,"defvalue");
     }
 
     public void setISMOBILENO(String mobileNO){

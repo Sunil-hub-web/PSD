@@ -26,10 +26,11 @@
                 android:layout_margin="@dimen/five"/>
 
             <TextView
+                android:id="@+id/texttotalbalance"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/sans_bold"
-                android:text="Rs 1000"
+                android:text="Rs 0"
                 android:textColor="@color/appcolor3"
                 android:textSize="@dimen/twenty"
                 android:layout_margin="@dimen/five"
@@ -40,21 +41,21 @@
         </LinearLayout>
 
         <EditText
-            android:id="@+id/edit_Password"
+            android:id="@+id/edit_WithdrawAmount"
             android:layout_width="match_parent"
             android:layout_height="@dimen/fifty"
-            android:fontFamily="@font/sans_regular"
-            android:inputType="textPassword"
-            android:padding="@dimen/ten"
-            android:hint="Withdraw Amount"
-            android:textSize="@dimen/edittextsize"
-            android:background="@drawable/layoutback"
             android:layout_margin="@dimen/five"
+            android:background="@drawable/layoutback"
+            android:drawablePadding="@dimen/ten"
+            android:fontFamily="@font/sans_regular"
+            android:hint="Withdraw Amount"
+            android:inputType="numberDecimal"
+            android:padding="@dimen/ten"
             android:textColor="@color/black"
-            android:drawablePadding="@dimen/ten"/>
+            android:textSize="@dimen/edittextsize" />
 
         <EditText
-            android:id="@+id/edit_PasswordAgain"
+            android:id="@+id/edit_WithdrawPassword"
             android:layout_width="match_parent"
             android:layout_height="@dimen/fifty"
             android:fontFamily="@font/sans_regular"
@@ -72,7 +73,7 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/signup"
             android:fontFamily="@font/sans_bold"
-            android:text="1. The minimum withdrawal amount is 110/-"
+            android:text="1. The minimum withdrawal amount is 150/-"
             android:textColor="@color/appcolor3"
             android:textSize="@dimen/textsize"
             android:layout_margin="@dimen/five"/>
@@ -82,14 +83,14 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/signup"
             android:fontFamily="@font/sans_bold"
-            android:text="2. Withdrawal Charege 6% "
+            android:text="2. Withdrawal Charege 10% "
             android:textColor="@color/appcolor3"
             android:textSize="@dimen/textsize"
             android:layout_margin="@dimen/five"/>
 
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_signup"
+            android:id="@+id/btn_WithDraw"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/ten"

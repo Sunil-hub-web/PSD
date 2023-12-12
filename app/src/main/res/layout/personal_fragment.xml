@@ -228,7 +228,7 @@
                                 android:layout_weight="1"
                                 android:fontFamily="@font/sans_bold"
                                 android:gravity="center"
-                                android:text="Total Recharge"
+                                android:text="Total Withdraw"
                                 android:textColor="@color/white"
                                 android:textSize="@dimen/textsize" />
 
@@ -248,7 +248,7 @@
 
                     </LinearLayout>
 
-                    <LinearLayout
+              <!--      <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/ten"
@@ -335,7 +335,7 @@
                         </LinearLayout>
 
 
-                    </LinearLayout>
+                    </LinearLayout>-->
 
 
                 </LinearLayout>
@@ -371,6 +371,7 @@
                             android:weightSum="2">
 
                             <TextView
+                                android:id="@+id/textTotalrecharge"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
@@ -381,6 +382,7 @@
                                 android:textSize="@dimen/textsize" />
 
                             <TextView
+                                android:id="@+id/textTotalbalance"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"

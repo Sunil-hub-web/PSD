@@ -114,6 +114,7 @@ public class LoginActivity extends AppCompatActivity {
                         startActivity(new Intent(LoginActivity.this,DashBoard.class));
 
                     }else{
+
                         String message = response.getString("message");
                         String user_id = response.getString("user_id");
                         String auth = response.getString("auth");

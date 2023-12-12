@@ -13,4 +13,9 @@ public class ApiList {
     public static final String change_withdraw_password = baseUrl+"change-withdraw-password";
     public static final String add_product_booking = baseUrl+"add-product-booking";
     public static final String my_products = baseUrl+"my-products";
+    public static final String user_bank_dtls = baseUrl+"user-bank-dtls";
+    public static final String edit_bank_dtls = baseUrl+"edit-bank-dtls";
+    public static final String withdrwal = baseUrl+"withdrwal";
+
+
 }

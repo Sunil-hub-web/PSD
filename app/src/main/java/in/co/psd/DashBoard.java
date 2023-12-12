@@ -5,11 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
@@ -22,6 +25,7 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
 
     public static  ImageView image_Logo,image_back;
     public static  TextView welcome_text;
+    private Boolean exit = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +52,14 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
         ft.addToBackStack(null);
         ft.commit();
 
-        binding.bottomNavigation.setSelectedItemId(R.id.home);
+        image_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        binding.bottomNavigation.setSelectedItemId(R.id.personal);
         binding.bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -129,6 +140,39 @@ public class DashBoard extends AppCompatActivity implements NavigationView.OnNav
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+
+        PersonalFragment test = (PersonalFragment) getSupportFragmentManager().findFragmentByTag("personalFragment");
+
+        if (test != null && test.isVisible()) {
+
+            if (exit) {
+                finish(); // finish activity
+            } else {
+                Toast.makeText(this, "Press Back again to Exit.",
+                        Toast.LENGTH_SHORT).show();
+                exit = true;
+                new Handler().postDelayed(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        // TODO Auto-generated method stub
+                        Intent a = new Intent(Intent.ACTION_MAIN);
+                        a.addCategory(Intent.CATEGORY_HOME);
+                        a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(a);
+                    }
+                }, 4 * 1000);
+            }
+        } else {
+
+            super.onBackPressed();
+
+           // text_name.setText("Home Page");
+           /* HomePageActivity.fragmentManager.beginTransaction()
+                    .replace(R.id.framLayout,new Homepage(),"HomeFragment").addToBackStack(null).commit();*/
+
+           // getSupportFragmentManager().beginTransaction().replace(R.id.framLayout, new Homepage(), "HomeFragment").commit();
+
+        }
     }
 }

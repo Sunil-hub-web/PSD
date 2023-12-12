@@ -1,9 +1,11 @@
 package in.co.psd;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,6 +19,7 @@ import in.co.psd.databinding.PersonalFragmentBinding;
 public class MyTeamFragment extends Fragment {
 
     MyteamFragmentBinding binding;
+    SessionManager sessionManager;
 
     @Nullable
     @Override
@@ -30,8 +33,10 @@ public class MyTeamFragment extends Fragment {
         DashBoard.welcome_text.setVisibility(View.VISIBLE);
         DashBoard.welcome_text.setText("My Team");
 
-        binding.textInvite.setBackgroundResource(R.drawable.backgroundcolor);
-        binding.textAssets.setBackgroundResource(R.drawable.layoutback);
+        binding.textAssets.setBackgroundResource(R.drawable.backgroundcolor);
+        binding.textInvite.setBackgroundResource(R.drawable.layoutback);
+
+        sessionManager = new SessionManager(getContext());
 
         binding.linteam.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,6 +52,7 @@ public class MyTeamFragment extends Fragment {
 
                 binding.lininviateout.setVisibility(View.VISIBLE);
                 binding.linteamout.setVisibility(View.GONE);
+
             }
         });
         binding.textInvite.setOnClickListener(new View.OnClickListener() {
@@ -59,6 +65,27 @@ public class MyTeamFragment extends Fragment {
 
                 binding.textInvite.setTextColor(ContextCompat.getColor(getContext(),R.color.white));
                 binding.textAssets.setTextColor(ContextCompat.getColor(getContext(),R.color.black));
+
+                if(sessionManager.getRefrealCode().equals("")){
+
+                    Toast.makeText(getActivity(), "RefrealCode Not Found", Toast.LENGTH_SHORT).show();
+
+                }else{
+                    //String data = "restaurant, 4.2, 20.3426898,  85.81122069999999},https://maps.google.com/?cid=12719621070879037825";
+
+                    String data = sessionManager.getRefrealCode();
+
+                    Intent sendIntent = new Intent();
+                    sendIntent.setAction(Intent.ACTION_SEND);
+                    sendIntent.putExtra(Intent.EXTRA_TEXT, data);
+                    sendIntent.setType("text/*");
+
+                    Intent shareIntent = Intent.createChooser(sendIntent, null);
+                    startActivity(shareIntent);
+
+                }
+
+
             }
         });
         binding.textAssets.setOnClickListener(new View.OnClickListener() {
