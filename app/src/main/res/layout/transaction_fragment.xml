@@ -7,51 +7,71 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:weightSum="3"
-        android:layout_marginTop="@dimen/fifteen">
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="@dimen/fifty"
-            android:fontFamily="@font/sans_regular"
-            android:padding="@dimen/ten"
-            android:text="Other"
-            android:gravity="center"
-            android:textSize="@dimen/edittextsize"
-            android:background="@drawable/otptextview_otp"
-            android:layout_margin="@dimen/five"
-            android:textColor="@color/white"
-            android:drawablePadding="@dimen/ten"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="3"
+            android:layout_marginTop="@dimen/fifteen">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="@dimen/fifty"
-            android:fontFamily="@font/sans_regular"
-            android:padding="@dimen/ten"
-            android:text="Recharge"
-            android:gravity="center"
-            android:textSize="@dimen/edittextsize"
-            android:background="@drawable/layoutback"
-            android:layout_margin="@dimen/five"
-            android:textColor="@color/black"
-            android:drawablePadding="@dimen/ten"/>
+            <TextView
+                android:id="@+id/text_all"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/fifty"
+                android:fontFamily="@font/sans_regular"
+                android:padding="@dimen/ten"
+                android:text="All"
+                android:gravity="center"
+                android:textSize="@dimen/edittextsize"
+                android:background="@drawable/otptextview_otp"
+                android:layout_margin="@dimen/five"
+                android:textColor="@color/white"
+                android:drawablePadding="@dimen/ten"/>
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="@dimen/fifty"
-            android:fontFamily="@font/sans_regular"
-            android:padding="@dimen/ten"
-            android:text="Withdraw"
-            android:gravity="center"
-            android:textSize="@dimen/edittextsize"
-            android:background="@drawable/layoutback"
+            <TextView
+                android:id="@+id/text_Recharge"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/fifty"
+                android:fontFamily="@font/sans_regular"
+                android:padding="@dimen/ten"
+                android:text="Recharge"
+                android:gravity="center"
+                android:textSize="@dimen/edittextsize"
+                android:background="@drawable/layoutback"
+                android:layout_margin="@dimen/five"
+                android:textColor="@color/black"
+                android:drawablePadding="@dimen/ten"/>
+
+            <TextView
+                android:id="@+id/text_Withdraw"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/fifty"
+                android:fontFamily="@font/sans_regular"
+                android:padding="@dimen/ten"
+                android:text="Withdraw"
+                android:gravity="center"
+                android:textSize="@dimen/edittextsize"
+                android:background="@drawable/layoutback"
+                android:layout_margin="@dimen/five"
+                android:textColor="@color/black"
+                android:drawablePadding="@dimen/ten"/>
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="@dimen/five"
-            android:textColor="@color/black"
-            android:drawablePadding="@dimen/ten"/>
+            android:id="@+id/transactionRecycler">
+
+        </androidx.recyclerview.widget.RecyclerView>
 
     </LinearLayout>
+
+
 
 </RelativeLayout>

@@ -377,7 +377,7 @@ public class BankAccountFragment extends Fragment {
                 case 0:
                     if (resultCode == RESULT_OK && data != null) {
                         selectedImage = (Bitmap) data.getExtras().get("data");
-                        binding_bank.editShowImagePtah.setText(selectedImage.toString());
+                       // binding_bank.editShowImagePtah.setText(selectedImage.toString());
                         imageDetails = getEncodedString(selectedImage);
                         Log.d("imageselect","selectimg1  "+selectedImage);
                     }
@@ -504,40 +504,40 @@ public class BankAccountFragment extends Fragment {
         dialog.setContentView(binding_bank.getRoot());
         dialog.setCancelable(false);
 
-        binding_bank.btnUpload.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                    if (ContextCompat.checkSelfPermission(getActivity(),
-                            Manifest.permission.CAMERA)
-
-                            != PackageManager.PERMISSION_GRANTED) {
-
-                        // Should we show an explanation?
-                        if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
-                                Manifest.permission.CAMERA)) {
-                            showAlert();
-                        } else {
-                            // No explanation needed, we can request the permission.
-                            ActivityCompat.requestPermissions(getActivity(),
-                                    new String[]{Manifest.permission.CAMERA},
-                                    MY_PERMISSIONS_REQUEST_CAMERA);
-                        }
-                    } else {
-
-                        showSettingsAlert();
-                    }
-                } else {
-
-                    chooseImage(getActivity());
-                }
-
-//                if (checkAndRequestPermissions(getActivity())) {
+//        binding_bank.btnUpload.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+//                    if (ContextCompat.checkSelfPermission(getActivity(),
+//                            Manifest.permission.CAMERA)
+//
+//                            != PackageManager.PERMISSION_GRANTED) {
+//
+//                        // Should we show an explanation?
+//                        if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
+//                                Manifest.permission.CAMERA)) {
+//                            showAlert();
+//                        } else {
+//                            // No explanation needed, we can request the permission.
+//                            ActivityCompat.requestPermissions(getActivity(),
+//                                    new String[]{Manifest.permission.CAMERA},
+//                                    MY_PERMISSIONS_REQUEST_CAMERA);
+//                        }
+//                    } else {
+//
+//                        showSettingsAlert();
+//                    }
+//                } else {
+//
 //                    chooseImage(getActivity());
 //                }
-            }
-        });
+//
+////                if (checkAndRequestPermissions(getActivity())) {
+////                    chooseImage(getActivity());
+////                }
+//            }
+//        });
         binding_bank.btnSaveBank.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -562,11 +562,11 @@ public class BankAccountFragment extends Fragment {
 
                     Toast.makeText(getContext(), "Enter Your Mobileno", Toast.LENGTH_SHORT).show();
 
-                }else if(imageDetails.equals("")){
+                }/*else if(imageDetails.equals("")){
 
                     Toast.makeText(getContext(), "Select Your Image", Toast.LENGTH_SHORT).show();
 
-                }else{
+                }*/else{
 
                     addBankDetails(userID,binding_bank.editBankName.getText().toString().trim(),
                             binding_bank.editBankAccountNo.getText().toString().trim(),
@@ -678,7 +678,7 @@ public class BankAccountFragment extends Fragment {
             jsonObject.put("accountNo",accountNo);
             jsonObject.put("accountHolder",accountHolder);
             jsonObject.put("ifsc",ifsc);
-            jsonObject.put("file",file);
+            //jsonObject.put("file",file);
 
         } catch (JSONException e) {
             throw new RuntimeException(e);

@@ -9,7 +9,6 @@
            android:layout_height="wrap_content"
            android:id="@+id/myProductRecycler">
 
-
        </androidx.recyclerview.widget.RecyclerView>
 
 

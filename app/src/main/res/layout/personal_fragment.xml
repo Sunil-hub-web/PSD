@@ -173,6 +173,7 @@
                             android:weightSum="3">
 
                             <TextView
+                                android:id="@+id/text_TotalIncome"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
@@ -183,6 +184,7 @@
                                 android:textSize="@dimen/textsize" />
 
                             <TextView
+                                android:id="@+id/text_TextWithDraw"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
@@ -193,6 +195,7 @@
                                 android:textSize="@dimen/textsize" />
 
                             <TextView
+                                android:id="@+id/text_TotalAssets"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"

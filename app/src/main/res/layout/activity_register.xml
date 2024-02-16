@@ -162,7 +162,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/fifty"
                     android:fontFamily="@font/sans_regular"
-                    android:inputType="textPassword"
+                    android:inputType="text"
                     android:padding="@dimen/ten"
                     android:hint="Enter Your Invitation Code"
                     android:textSize="@dimen/edittextsize"

@@ -27,9 +27,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.security.NoSuchAlgorithmException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Base64;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
@@ -93,10 +95,26 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             @Override
             public void onClick(View v) {
 
-                String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+                try {
 
-                getProfileDetails(sessionManager.getUSERID(), sessionManager.getAUTHKEY(),product.getProduct_id(),
-                        product.product_amt,date);
+                    int incdate = Integer.valueOf(product.getProduct_lockDays());
+
+                    String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());// Start date
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                    Calendar c = Calendar.getInstance();
+                    c.setTime(sdf.parse(date));
+                    c.add(Calendar.DATE, incdate);  // number of days to add
+                    String enddate = sdf.format(c.getTime());
+
+                    Log.d("enddate",enddate);
+
+                    getProfileDetails(sessionManager.getUSERID(), sessionManager.getAUTHKEY(),product.getProduct_id(),
+                            product.product_amt,date, enddate);
+
+                } catch (ParseException e) {
+                    throw new RuntimeException(e);
+                }
+
 
                 //productByNow(sessionManager.getUSERID(),product.getProduct_id(),product.product_amt,date);
 
@@ -118,7 +136,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         }
     }
 
-    public void productByNow(String uid, String productID, String amt, String date){
+    public void productByNow(String uid, String productID, String amt, String start_date, String end_date){
 
         progressbar.showDialog();
 
@@ -129,7 +147,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             jsonObject.put("uid",uid);
             jsonObject.put("productID",productID);
             jsonObject.put("amt",amt);
-            jsonObject.put("date",date);
+            jsonObject.put("start_date",start_date);
+            jsonObject.put("end_date",end_date);
 
         } catch (JSONException e) {
             throw new RuntimeException(e);
@@ -185,7 +204,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
     }
 
-    public void getProfileDetails(String userId,String auth,String productID, String amt, String date){
+    public void getProfileDetails(String userId,String auth,String productID, String amt, String date, String enddate){
 
         progressbar.showDialog();
 
@@ -233,7 +252,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
                         if (duser_wallet > damt ){
 
-                            productByNow(userId, productID, amt, date);
+                            productByNow(userId, productID, amt, date, enddate);
 
                         }else{
 

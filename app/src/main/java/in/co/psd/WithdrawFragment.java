@@ -39,6 +39,7 @@ public class WithdrawFragment extends Fragment {
     SessionManager sessionManager;
     String str_userwallet,str_password;
     ViewDialog progressbar;
+    double duser_wallet = 0.0;
 
     @Nullable
     @Override
@@ -143,15 +144,16 @@ public class WithdrawFragment extends Fragment {
                         String user_stat = jsonObject_user_details.getString("user_stat");
                         str_userwallet = jsonObject_user_details.getString("user_wallet");
 
+                        sessionManager.setBALANCEAMOUNT(str_userwallet);
 
                         sessionManager.setUSERID(user_id);
                         sessionManager.setAUTHKEY(user_auth);
                         sessionManager.setRefrealCode(user_id);
                         sessionManager.setLogin();
 
-                        double duser_wallet = Double.valueOf(str_userwallet);
+                        duser_wallet = Double.valueOf(str_userwallet);
 
-                        binding.texttotalbalance.setText("RS  "+str_userwallet);
+                        binding.texttotalbalance.setText("RS  "+sessionManager.getBALANCEAMOUNT());
 
 
                     }else{
@@ -209,9 +211,13 @@ public class WithdrawFragment extends Fragment {
 
                         Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
 
-                        int balanceamount = Integer.valueOf(str_userwallet) - Integer.valueOf(amt);
+
+
+                        double balanceamount = Double.valueOf(str_userwallet) - Double.valueOf(amt);
                         String str_balanceamount = String.valueOf(balanceamount);
                         sessionManager.setBALANCEAMOUNT(str_balanceamount);
+
+                        binding.texttotalbalance.setText("RS  "+sessionManager.getBALANCEAMOUNT());
 
                     }else{
 

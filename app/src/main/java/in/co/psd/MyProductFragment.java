@@ -111,7 +111,7 @@ public class MyProductFragment extends Fragment {
                         }
 
                         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false);
-                        ProductAdapter productAdapter = new ProductAdapter(getActivity(),productModelClasses);
+                        MyProductAdapter productAdapter = new MyProductAdapter(getActivity(),productModelClasses);
                         binding.myProductRecycler.setLayoutManager(linearLayoutManager);
                         binding.myProductRecycler.setHasFixedSize(true);
                         binding.myProductRecycler.setAdapter(productAdapter);

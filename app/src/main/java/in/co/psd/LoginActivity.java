@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -98,6 +99,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 try {
                     String status = response.getString("status");
+
                     if(status.equals("202")){
 
                         String message = response.getString("message");
@@ -131,6 +133,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 progressbar.hideDialog();
                 Toast.makeText(LoginActivity.this, ""+error, Toast.LENGTH_SHORT).show();
+                Log.d("vollyerror",error.toString());
             }
         });
         jsonObjectRequest.setRetryPolicy(new DefaultRetryPolicy(30000,3,DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));

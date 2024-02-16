@@ -257,6 +257,71 @@ public class PersonalFragment extends Fragment {
 
                         Log.d("userreferalcode",user_id+"   "+sessionManager.getRefrealCode());
 
+                        getHomeDetails(userId);
+
+                    }else{
+
+                        String message = response.getString("message");
+                        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+                    }
+
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                progressbar.hideDialog();
+                Toast.makeText(getActivity(), ""+error, Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        jsonObjectRequest.setRetryPolicy(new DefaultRetryPolicy(30000,3,DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
+        requestQueue.getCache().clear();
+        requestQueue.add(jsonObjectRequest);
+    }
+
+    public void getHomeDetails(String userId){
+
+        progressbar.showDialog();
+
+
+        Map<String,String> params = new HashMap<>();
+        params.put("userId",userId);
+
+        JSONObject jsonObject1 = new JSONObject(params);
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, ApiList.userHome, jsonObject1, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+
+                progressbar.hideDialog();
+
+                try {
+                    String status = response.getString("status");
+
+                    if(status.equals("202")){
+
+                        String message = response.getString("message");
+                        String user_details = response.getString("user_details");
+                        JSONObject jsonObject_user_details = new JSONObject(user_details);
+                        String withdrawal = jsonObject_user_details.getString("withdrawal");
+                        String recharge = jsonObject_user_details.getString("recharge");
+                        String income = jsonObject_user_details.getString("income");
+                        String product = jsonObject_user_details.getString("product");
+                        String balance = jsonObject_user_details.getString("balance");
+
+                        binding.textTotalbalance.setText(balance);
+                        binding.textTotalrecharge.setText(recharge);
+                        binding.textTotalIncome.setText(income);
+                        binding.textTotalAssets.setText(product);
+                        binding.textTextWithDraw.setText(withdrawal);
+
                     }else{
 
                         String message = response.getString("message");
