@@ -27,6 +27,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.security.NoSuchAlgorithmException;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -99,6 +100,15 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
                     int incdate = Integer.valueOf(product.getProduct_lockDays());
 
+
+                    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                    Calendar calendar = Calendar.getInstance();
+                    calendar.add(Calendar.DAY_OF_YEAR, 1);
+                    Date tomorrow = calendar.getTime();
+                    String tomorrowAsString = dateFormat.format(tomorrow);
+                    //String todayAsString = dateFormat.format(today);
+                    Log.d("Yourdate","enddate1:   "+tomorrowAsString);
+
                     String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());// Start date
                     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                     Calendar c = Calendar.getInstance();
@@ -106,10 +116,12 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
                     c.add(Calendar.DATE, incdate);  // number of days to add
                     String enddate = sdf.format(c.getTime());
 
-                    Log.d("enddate",enddate);
+                    Log.d("Yourdate","enddate2:   "+enddate);
 
-                    getProfileDetails(sessionManager.getUSERID(), sessionManager.getAUTHKEY(),product.getProduct_id(),
-                            product.product_amt,date, enddate);
+                    //getProfileDetails(sessionManager.getUSERID(), sessionManager.getAUTHKEY(),product.getProduct_id(), product.getProduct_amt(),date, enddate);
+
+                    getHomeDetails(sessionManager.getUSERID(), sessionManager.getAUTHKEY(),product.getProduct_id(),
+                            product.getProduct_amt(),tomorrowAsString, enddate);
 
                 } catch (ParseException e) {
                     throw new RuntimeException(e);
@@ -274,6 +286,77 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             @Override
             public void onErrorResponse(VolleyError error) {
 
+                progressbar.hideDialog();
+                Toast.makeText(context, ""+error, Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        jsonObjectRequest.setRetryPolicy(new DefaultRetryPolicy(30000,3,DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        requestQueue.getCache().clear();
+        requestQueue.add(jsonObjectRequest);
+    }
+
+    public void getHomeDetails(String userId,String auth,String productID, String amt, String date, String enddate){
+
+        progressbar.showDialog();
+
+
+        Map<String,String> params = new HashMap<>();
+        params.put("userId",userId);
+
+        JSONObject jsonObject1 = new JSONObject(params);
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, ApiList.userHome, jsonObject1, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+
+                progressbar.hideDialog();
+
+                try {
+                    String status = response.getString("status");
+
+                    if(status.equals("202")){
+
+                        String message = response.getString("message");
+                        String user_details = response.getString("user_details");
+                        JSONObject jsonObject_user_details = new JSONObject(user_details);
+                        String withdrawal = jsonObject_user_details.getString("withdrawal");
+                        String recharge = jsonObject_user_details.getString("recharge");
+                        String income = jsonObject_user_details.getString("income");
+                        String product = jsonObject_user_details.getString("product");
+                        String balance = jsonObject_user_details.getString("balance");
+
+                        double duser_wallet = Double.valueOf(balance);
+                        double damt = Double.valueOf(amt);
+
+                        if (duser_wallet > damt ){
+
+                            productByNow(userId, productID, amt, date, enddate);
+
+                        }else{
+
+                            Toast.makeText(context, "Please Recharges And Buy", Toast.LENGTH_SHORT).show();
+                        }
+
+
+                    }else{
+
+                        String message = response.getString("message");
+                        Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+                    }
+
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                Log.d("userdetailsamt",amt);
                 progressbar.hideDialog();
                 Toast.makeText(context, ""+error, Toast.LENGTH_SHORT).show();
 

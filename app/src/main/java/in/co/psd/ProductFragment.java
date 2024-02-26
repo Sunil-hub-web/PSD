@@ -101,6 +101,8 @@ public class ProductFragment extends Fragment {
 
                         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false);
                         ProductAdapter productAdapter = new ProductAdapter(getActivity(),productModelClasses);
+                        linearLayoutManager.setReverseLayout(true);
+                        linearLayoutManager.setStackFromEnd(true);
                         binding.productRecyclerView.setLayoutManager(linearLayoutManager);
                         binding.productRecyclerView.setHasFixedSize(true);
                         binding.productRecyclerView.setAdapter(productAdapter);

@@ -112,12 +112,12 @@ public class BankAccountFragment extends Fragment {
                 if (binding.btnEditupload.getText().toString().trim().equals("Edit")){
 
                     binding.btnEditupload.setText("Upload");
-                    binding.linUploadbankdetails.setVisibility(View.VISIBLE);
+                   // binding.linUploadbankdetails.setVisibility(View.VISIBLE);
 
                 }else{
 
                     binding.btnEditupload.setText("Edit");
-                    binding.linUploadbankdetails.setVisibility(View.GONE);
+                   // binding.linUploadbankdetails.setVisibility(View.GONE);
 
                     if(binding.userFullName.getText().toString().trim().equals("")){
 
@@ -139,11 +139,11 @@ public class BankAccountFragment extends Fragment {
 
                         Toast.makeText(getContext(), "Enter Your Mobileno", Toast.LENGTH_SHORT).show();
 
-                    }*/else if(imageDetails.equals("")){
+                    }*//*else if(imageDetails.equals("")){
 
                         Toast.makeText(getContext(), "Select Your Image", Toast.LENGTH_SHORT).show();
 
-                    }else{
+                    }*/else{
 
                         editBankDetails(userID,binding.bankName.getText().toString().trim(),
                                 binding.bankAccountNo.getText().toString().trim(),
@@ -179,7 +179,7 @@ public class BankAccountFragment extends Fragment {
 
                     selectedImage = bitmap;
 
-                    binding.editShowImagePtah.setText(bitmap.toString());
+                   // binding.editShowImagePtah.setText(bitmap.toString());
 
                     imageDetails = getEncodedString(bitmap);
                     String[] projection = { MediaStore.Images.Media.DATA };
@@ -201,40 +201,40 @@ public class BankAccountFragment extends Fragment {
                 Log.d("PhotoPicker", "No media selected");
             }
         });
-        binding.btnUpload.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                    if (ContextCompat.checkSelfPermission(getActivity(),
-                            Manifest.permission.CAMERA)
-
-                            != PackageManager.PERMISSION_GRANTED) {
-
-                        // Should we show an explanation?
-                        if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
-                                Manifest.permission.CAMERA)) {
-                            showAlert();
-                        } else {
-                            // No explanation needed, we can request the permission.
-                            ActivityCompat.requestPermissions(getActivity(),
-                                    new String[]{Manifest.permission.CAMERA},
-                                    MY_PERMISSIONS_REQUEST_CAMERA);
-                        }
-                    } else {
-
-                        showSettingsAlert();
-                    }
-                } else {
-
-                    chooseImage(getActivity());
-                }
-
-//                if (checkAndRequestPermissions(getActivity())) {
+//        binding.btnUpload.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+//                    if (ContextCompat.checkSelfPermission(getActivity(),
+//                            Manifest.permission.CAMERA)
+//
+//                            != PackageManager.PERMISSION_GRANTED) {
+//
+//                        // Should we show an explanation?
+//                        if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
+//                                Manifest.permission.CAMERA)) {
+//                            showAlert();
+//                        } else {
+//                            // No explanation needed, we can request the permission.
+//                            ActivityCompat.requestPermissions(getActivity(),
+//                                    new String[]{Manifest.permission.CAMERA},
+//                                    MY_PERMISSIONS_REQUEST_CAMERA);
+//                        }
+//                    } else {
+//
+//                        showSettingsAlert();
+//                    }
+//                } else {
+//
 //                    chooseImage(getActivity());
 //                }
-            }
-        });
+//
+////                if (checkAndRequestPermissions(getActivity())) {
+////                    chooseImage(getActivity());
+////                }
+//            }
+//        });
 
         return binding.getRoot();
 
@@ -641,7 +641,7 @@ public class BankAccountFragment extends Fragment {
                     }else{
 
                         binding.linBankdetails.setVisibility(View.VISIBLE);
-                        binding.linUploadbankdetails.setVisibility(View.GONE);
+                       // binding.linUploadbankdetails.setVisibility(View.GONE);
                         Toast.makeText(getActivity(), "Bank details not found", Toast.LENGTH_SHORT).show();
                     }
 
@@ -679,6 +679,8 @@ public class BankAccountFragment extends Fragment {
             jsonObject.put("accountHolder",accountHolder);
             jsonObject.put("ifsc",ifsc);
             //jsonObject.put("file",file);
+
+            Log.d("editbankdetaoils",uid+"  "+bankName);
 
         } catch (JSONException e) {
             throw new RuntimeException(e);

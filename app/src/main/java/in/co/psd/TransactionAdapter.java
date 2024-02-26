@@ -42,6 +42,14 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
         holder.binding.textTransactionType.setText(trans.getTransaction_type());
         holder.binding.textTransactionUser.setText(trans.getTransaction_user());
 
+        if (trans.getTransaction_stat().equals("0")){
+            holder.binding.textTransactionStatues.setText("Pending");
+        }else if(trans.getTransaction_stat().equals("1")){
+            holder.binding.textTransactionStatues.setText("Approve");
+        }else{
+            holder.binding.textTransactionStatues.setText("Reject");
+        }
+
     }
 
     @Override
