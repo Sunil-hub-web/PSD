@@ -84,11 +84,12 @@
                             android:id="@+id/lininvite">
 
                             <TextView
+                                android:id="@+id/showmember1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/sans_bold"
                                 android:gravity="center"
-                                android:text="0 (0)"
+                                android:text="(0)"
                                 android:textColor="@color/white"
                                 android:textSize="@dimen/textsize" />
 
@@ -112,11 +113,12 @@
                             android:id="@+id/linteam">
 
                             <TextView
+                                android:id="@+id/showmember2"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/sans_bold"
                                 android:gravity="center"
-                                android:text="0 (0)"
+                                android:text="(0)"
                                 android:textColor="@color/white"
                                 android:textSize="@dimen/textsize" />
 
@@ -247,6 +249,14 @@
                     android:drawablePadding="@dimen/ten"/>
 
             </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/showRecyclerLavel"
+                android:layout_marginTop="10dp">
+
+            </androidx.recyclerview.widget.RecyclerView>
 
         </LinearLayout>
 

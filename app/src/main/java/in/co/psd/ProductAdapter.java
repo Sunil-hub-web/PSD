@@ -89,7 +89,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         holder.viewproductBinding.textPurchaseLimit1.setText(product.getProduct_purchaseLimit()+" / Person");
         holder.viewproductBinding.textTotalRevenue1.setText("Rs "+str_totalrevinue);
 
-        String image = "https://projects.conjuror.in/investor/"+product.getProduct_banner();
+        String image = "http://rocky.aisganijang.com/"+product.getProduct_banner();
         Picasso.with(context).load(image).into(holder.viewproductBinding.productImage);
 
         binding.btnBYNow.setOnClickListener(new View.OnClickListener() {
@@ -262,7 +262,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
                         double duser_wallet = Double.valueOf(user_wallet);
                         double damt = Double.valueOf(amt);
 
-                        if (duser_wallet > damt ){
+                        if (duser_wallet > damt ||  duser_wallet == damt){
 
                             productByNow(userId, productID, amt, date, enddate);
 
@@ -331,7 +331,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
                         double duser_wallet = Double.valueOf(balance);
                         double damt = Double.valueOf(amt);
 
-                        if (duser_wallet > damt ){
+                        if (duser_wallet > damt || duser_wallet == damt){
 
                             productByNow(userId, productID, amt, date, enddate);
 

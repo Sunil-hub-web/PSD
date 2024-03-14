@@ -93,7 +93,7 @@ public class ProductFragment extends Fragment {
 
                             ProductModelClass productModelClass = new ProductModelClass(
                                     product_id, product_title, product_desc, product_amt, product_lockDays, product_purchaseLimit, product_owner,
-                                    product_banner, product_catelog, product_stat
+                                    product_banner, product_catelog, product_stat,"","",""
                             );
 
                             productModelClasses.add(productModelClass);

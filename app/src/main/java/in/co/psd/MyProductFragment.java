@@ -101,10 +101,13 @@ public class MyProductFragment extends Fragment {
                             String product_banner = jsonObject_product.getString("product_banner");
                             String product_catelog = jsonObject_product.getString("product_catelog");
                             String product_stat = jsonObject_product.getString("product_stat");
+                            String productBook_start_date = jsonObject_product.getString("productBook_start_date");
+                            String productBook_end_date = jsonObject_product.getString("productBook_end_date");
+                           // String income = jsonObject_product.getString("income");
 
                             ProductModelClass productModelClass = new ProductModelClass(
                                     product_id, product_title, product_desc, product_amt, product_lockDays, product_purchaseLimit, product_owner,
-                                    product_banner, product_catelog, product_stat
+                                    product_banner, product_catelog, product_stat, "",productBook_start_date,productBook_end_date
                             );
 
                             productModelClasses.add(productModelClass);

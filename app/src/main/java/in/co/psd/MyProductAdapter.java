@@ -12,7 +12,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 import in.co.psd.databinding.ViewmyproductBinding;
 import in.co.psd.databinding.ViewproductBinding;
@@ -60,9 +64,33 @@ public class MyProductAdapter extends RecyclerView.Adapter<MyProductAdapter.View
         holder.viewproductBinding.textValidityPeriod1.setText(product.getProduct_lockDays()+" / Days");
         holder.viewproductBinding.textPurchaseLimit1.setText(product.getProduct_title());
         holder.viewproductBinding.textTotalRevenue1.setText("Rs "+str_totalrevinue);
-
-        String image = "https://projects.conjuror.in/investor/"+product.getProduct_banner();
+        holder.viewproductBinding.textStartDate.setText(product.getProductBook_start_date());
+        holder.viewproductBinding.textEnddate.setText(product.getProductBook_end_date());
+        String image = "http://rocky.aisganijang.com/"+product.getProduct_banner();
         Picasso.with(context).load(image).into(holder.viewproductBinding.productImage);
+
+        try {
+
+            String date = new SimpleDateFormat("yyyy-mm-dd", Locale.getDefault()).format(new Date());
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-mm-dd");
+            Date date1 = simpleDateFormat.parse(product.getProductBook_start_date());
+            Date date2 = simpleDateFormat.parse(product.getProductBook_end_date());
+            Date date3 = simpleDateFormat.parse(date);
+
+            //holder.viewproductBinding.showdailyday.setText("Count Day : "+"0");
+
+            if (date3.compareTo(date2) > 0) {
+                System.out.println("Date3 is after Date2");
+            } else if (date1.compareTo(date2) < 0) {
+                System.out.println("Date1 is before Date2");
+            } else {
+                System.out.println("Date1 is equal to Date2");
+            }
+
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+
 
     }
 

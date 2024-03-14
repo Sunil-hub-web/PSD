@@ -62,6 +62,8 @@ public class PersonalFragment extends Fragment {
 
         //binding.textTotalrecharge.setText("");
 
+        Log.d("userdetails",sessionManager.getUSERID()+"  "+sessionManager.getAUTHKEY());
+
         binding.relRecharage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

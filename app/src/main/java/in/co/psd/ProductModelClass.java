@@ -3,11 +3,11 @@ package in.co.psd;
 public class ProductModelClass {
 
     String product_id,product_title,product_desc,product_amt,product_lockDays,product_purchaseLimit,product_owner,
-            product_banner,product_catelog,product_stat;
+            product_banner,product_catelog,product_stat, income, productBook_start_date, productBook_end_date;
 
     public ProductModelClass(String product_id, String product_title, String product_desc, String product_amt, String product_lockDays,
                              String product_purchaseLimit, String product_owner, String product_banner, String product_catelog,
-                             String product_stat) {
+                             String product_stat, String income, String productBook_start_date, String productBook_end_date) {
 
         this.product_id = product_id;
         this.product_title = product_title;
@@ -19,6 +19,9 @@ public class ProductModelClass {
         this.product_banner = product_banner;
         this.product_catelog = product_catelog;
         this.product_stat = product_stat;
+        this.income = income;
+        this.productBook_start_date = productBook_start_date;
+        this.productBook_end_date = productBook_end_date;
     }
 
     public String getProduct_id() {
@@ -99,5 +102,29 @@ public class ProductModelClass {
 
     public void setProduct_stat(String product_stat) {
         this.product_stat = product_stat;
+    }
+
+    public String getIncome() {
+        return income;
+    }
+
+    public void setIncome(String income) {
+        this.income = income;
+    }
+
+    public String getProductBook_start_date() {
+        return productBook_start_date;
+    }
+
+    public void setProductBook_start_date(String productBook_start_date) {
+        this.productBook_start_date = productBook_start_date;
+    }
+
+    public String getProductBook_end_date() {
+        return productBook_end_date;
+    }
+
+    public void setProductBook_end_date(String productBook_end_date) {
+        this.productBook_end_date = productBook_end_date;
     }
 }

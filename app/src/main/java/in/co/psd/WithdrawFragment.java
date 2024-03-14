@@ -81,8 +81,8 @@ public class WithdrawFragment extends Fragment {
 
                 }else{
 
-                    int withdrawamount = Integer.valueOf(binding.editWithdrawAmount.getText().toString().trim());
-                    int withdrawwalletamount = Integer.valueOf(str_userwallet);
+                    double withdrawamount = Double.valueOf(binding.editWithdrawAmount.getText().toString().trim());
+                    double withdrawwalletamount = Double.valueOf(str_userwallet);
 
                     if(withdrawamount > withdrawwalletamount){
 
@@ -93,7 +93,6 @@ public class WithdrawFragment extends Fragment {
                         if (withdrawamount > 150){
 
                             String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
-
                             userwithdrawamount(sessionManager.getUSERID(),
                                     binding.editWithdrawAmount.getText().toString().trim(), date);
 

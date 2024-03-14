@@ -25,10 +25,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.Manifest;
 import android.view.Window;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -56,9 +53,7 @@ import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URL;
-import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -97,6 +92,8 @@ public class BankAccountFragment extends Fragment {
         viewBankAccoutDetails(userID);
 
         Log.d("useriddetails",userID);
+
+        binding.linInsertbankdetails.setVisibility(View.GONE);
 
         binding.btnAddBankAcc.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -428,7 +425,7 @@ public class BankAccountFragment extends Fragment {
         return filePath;
     }
 
-    public void addBankDetails(String uid, String bankName, String accountNo, String accountHolder, String ifsc, String file){
+    public void addBankDetails(String uid, String bankName, String accountNo, String accountHolder, String ifsc, String file, Dialog dialog){
 
         progressbar.showDialog();
 
@@ -461,6 +458,9 @@ public class BankAccountFragment extends Fragment {
                     if (status.equals("201")){
 
                         Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+
+                        dialog.dismiss();
+                        viewBankAccoutDetails(uid);
 
                     }else{
 
@@ -571,7 +571,7 @@ public class BankAccountFragment extends Fragment {
                     addBankDetails(userID,binding_bank.editBankName.getText().toString().trim(),
                             binding_bank.editBankAccountNo.getText().toString().trim(),
                             binding_bank.editUserFullName.getText().toString().trim(),
-                            binding_bank.editIFCSCode.getText().toString().trim(),imageDetails);
+                            binding_bank.editIFCSCode.getText().toString().trim(),imageDetails,dialog);
                 }
             }
         });
@@ -627,10 +627,10 @@ public class BankAccountFragment extends Fragment {
                         String userBannk_accountNo = jsonObject_user_details.getString("userBannk_accountNo");
                         String userBannk_accountHolder = jsonObject_user_details.getString("userBannk_accountHolder");
                         String userBannk_IFSC = jsonObject_user_details.getString("userBannk_IFSC");
-                        String userBannk_file = jsonObject_user_details.getString("userBannk_file");
+                        //String userBannk_file = jsonObject_user_details.getString("userBannk_file");
 
-                        String image = "https://projects.conjuror.in/investor/"+userBannk_file;
-                        Picasso.with(getContext()).load(image).into(binding.showbankImage);
+                       // String image = "https://projects.conjuror.in/investor/"+userBannk_file;
+                       // Picasso.with(getContext()).load(image).into(binding.showbankImage);
                        // binding.showbankImage.animate().rotation(90).start();
 
                         binding.bankAccountNo.setText(userBannk_accountNo);
@@ -641,7 +641,8 @@ public class BankAccountFragment extends Fragment {
                     }else{
 
                         binding.linBankdetails.setVisibility(View.VISIBLE);
-                       // binding.linUploadbankdetails.setVisibility(View.GONE);
+                        binding.linInsertbankdetails.setVisibility(View.GONE);
+                        //binding.linUploadbankdetails.setVisibility(View.GONE);
                         Toast.makeText(getActivity(), "Bank details not found", Toast.LENGTH_SHORT).show();
                     }
 

@@ -26,7 +26,7 @@
             android:padding="@dimen/seven"
             android:text="Sign In"
             android:textColor="@color/white"
-            android:textSize="@dimen/twenty">
+            android:textSize="20sp">
 
         </TextView>
 
@@ -56,6 +56,7 @@
                 android:background="@drawable/layoutback"
                 android:drawableLeft="@drawable/baseline_call_24"
                 android:drawablePadding="@dimen/ten"
+                android:textColorHint="@color/background3"
                 android:fontFamily="@font/sans_regular"
                 android:hint="Your Mobile No"
                 android:inputType="phone"
@@ -70,6 +71,7 @@
                 android:fontFamily="@font/sans_regular"
                 android:inputType="textPassword"
                 android:padding="@dimen/ten"
+                android:textColorHint="@color/background3"
                 android:hint="Your Password"
                 android:textSize="@dimen/edittextsize"
                 android:background="@drawable/layoutback"
@@ -99,7 +101,7 @@
                 android:padding="@dimen/twelve"
                 android:text="Sign In"
                 android:textColor="@color/white"
-                android:textSize="15dp"
+                android:textSize="@dimen/edittextsize"
                 android:textStyle="bold"
                 app:backgroundTint="@color/appcolor3"
                 app:cornerRadius="@dimen/ten" />
@@ -129,7 +131,7 @@
                     android:fontFamily="@font/sans_bold"
                     android:text=" Sign Up"
                     android:textColor="@color/appcolor3"
-                    android:textSize="@dimen/textsize" />
+                    android:textSize="@dimen/edittextsize" />
 
 
             </RelativeLayout>

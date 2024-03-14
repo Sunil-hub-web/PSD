@@ -13,10 +13,28 @@
         android:background="@drawable/textfieldback"
         android:elevation="15dp">
 
+        <TextView
+            android:id="@+id/showdailyday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/three"
+            android:layout_marginTop="@dimen/three"
+            android:layout_marginEnd="@dimen/three"
+            android:layout_marginBottom="@dimen/three"
+            android:layout_alignParentRight="true"
+            android:layout_weight="1"
+            android:background="@drawable/backgroundcolor"
+            android:backgroundTint="@color/appcolor3"
+            android:gravity="center"
+            android:padding="@dimen/five"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textsize"
+            android:textStyle="bold"></TextView>
+
         <ImageView
             android:id="@+id/productImage"
             android:layout_width="@dimen/hundred_ten"
-            android:layout_height="@dimen/hundred_twenty"
+            android:layout_height="@dimen/hundred_fifty"
             android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/five"
             android:layout_marginTop="@dimen/five"
@@ -34,7 +52,8 @@
             android:layout_marginTop="@dimen/five"
             android:layout_toRightOf="@id/productImage"
             android:orientation="horizontal"
-            android:weightSum="2">
+            android:weightSum="2"
+            android:layout_below="@+id/showdailyday">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -101,6 +120,26 @@
                     android:textSize="@dimen/twelve_size"
                     android:textStyle="bold"></TextView>
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/three"
+                    android:text="Start date"
+                    android:textColor="@color/appcolor1"
+                    android:textSize="@dimen/twelve_size"
+                    android:textStyle="bold"></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/three"
+                    android:text="End date"
+                    android:textColor="@color/appcolor1"
+                    android:textSize="@dimen/twelve_size"
+                    android:textStyle="bold"></TextView>
+
             </LinearLayout>
 
             <LinearLayout
@@ -163,6 +202,26 @@
                     android:layout_centerVertical="true"
                     android:layout_margin="@dimen/three"
                     android:text="1 / Person"
+                    android:textColor="@color/background2"
+                    android:textSize="@dimen/twelve_size"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/text_StartDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/three"
+                    android:textColor="@color/background2"
+                    android:textSize="@dimen/twelve_size"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/text_Enddate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/three"
                     android:textColor="@color/background2"
                     android:textSize="@dimen/twelve_size"
                     android:textStyle="bold" />
